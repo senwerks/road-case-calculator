@@ -6,6 +6,14 @@ This is a very simple calculator for helping you figure out what hardware you ne
 
 I made this for my own personal usage, so it's not very polished. But it works for me, and I hope it works for you too.
 
+## TODO
+
+[ ] - Let user choose extrusion lengths available at their supplier, then calculate "lengths to order"
+[ ] - Make it less ugly
+[ ] - Add better explanation of how to use the output, allow for kerf/waste, example cuts for lid, etc
+[ ] - Generate plans/diagrams?
+[ ] - Scrape and generate prices?
+
 ## Reference
 
 This is the raw list of hardware that I use to build my own roadcases, and that the calculator is based on. It specs a standard roadcase with 9mm plywood, piano-hinged top lid with 2 recessed butterfly latches, 2 recessed handles, and flat (not ball-style) corners as I prefer those.

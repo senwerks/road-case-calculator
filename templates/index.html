@@ -19,84 +19,128 @@
             <section>
                 <h1>
                     <kbd>Road Case Calculator</kbd>
-                    <span>for Audio/Visual travel cases</span>
                 </h1>
             </section>
             <section>
                 <h2>Enter your case dimensions</h2>
-                <form id="case-dimensions">
-                    <!-- Form goes here -->
+                <p>(mm, cm, inches, parsecs, we're unit-agnostic here)</p>
+                <form id="case-dimensions" method="post" action="/calculate">
+                    <label for="width">Width:</label>
+                    <input
+                        type="number"
+                        id="width"
+                        name="width"
+                        value="{{ output.width|default('') }}"
+                        required
+                    /><br />
+                    <label for="height">Height:</label>
+                    <input
+                        type="number"
+                        id="height"
+                        name="height"
+                        value="{{ output.height|default('') }}"
+                        required
+                    /><br />
+                    <label for="depth">Depth:</label>
+                    <input
+                        type="number"
+                        id="depth"
+                        name="depth"
+                        value="{{ output.depth|default('') }}"
+                        required
+                    /><br />
                     <br />
                     <button type="submit">Submit</button>
                 </form>
-                <h2>Measured Hardware</h2>
+                {% if output %}
                 <div id="calculator-output">
-                    Angle Joiner Extrusion (connects plywood sides)
+                    <h2>Measured Hardware</h2>
                     <ul>
-                        <li>Width of case x 4</li>
-                        <li>Depth of case x 4</li>
-                        <li>Height of case x 4</li>
+                        <li>
+                            {{ output.angle_joiner_extrusion }} of
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-angle-joiner-extrusion-30mm"
+                                >Angle Joiner Extrusion</a
+                            >
+                            (connects plywood edges)<br />
+                            (Width of case x 4) + (Depth of case x 4) + (Height
+                            of case x 4)
+                        </li>
+                        <li>
+                            {{ output.hybrid_joiner_extrusion }} of
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-hybrid-joiner-aluminium-extrusion-9mm"
+                                >Hybrid Joiner Extrusion</a
+                            >
+                            (interlocking rim/edges of lid opening)<br />
+                            (Width of case x 2) + (Depth of case x 2)
+                        </li>
+                        <li>
+                            Plywood Cut-List:<br />
+                            <ul>
+                                <li>
+                                    Front/Back: {{ output.width }} x {{
+                                    output.height }} x 2
+                                </li>
+                                <li>
+                                    Top/Bottom: {{ output.width }} x {{
+                                    output.depth }} x 2
+                                </li>
+                                <li>
+                                    Sides: {{ output.height }} x {{ output.depth
+                                    }} x 2
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                    Hybrid Joiner
+                    <h2>Non-measured Hardware</h2>
                     <ul>
-                        <li>Width of case x 2</li>
-                        <li>Depth of case x 2</li>
-                    </ul>
-                    Plywood
-                    <ul>
-                        <li>Front/Back: Width x Height x 2</li>
-                        <li>Top/Bottom: Width x Depth x 2</li>
-                        <li>Sides: Height x Depth x 2</li>
+                        <li>
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-flat-corner-chrome"
+                                >Corners</a
+                            >
+                            or
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-ball-corner-chrome"
+                                >Ball Corners</a
+                            >
+                            ($5ea, $40 total)
+                        </li>
+                        <li>
+                            8 x
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-l-brace-plate-30mm-cut-corners-chrome"
+                                >L Brackets</a
+                            >
+                            for edges of openings ($1.50ea, $12 total)
+                        </li>
+                        <li>
+                            2 x Hinges or
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-punched-piano-hinge-road-case-1-8m"
+                                >Piano Hinge</a
+                            >
+                            ($26 for 1.8m)
+                        </li>
+                        <li>
+                            2 x
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-butterfly-latch-catch-recessed-medium"
+                                >Recessed Latches</a
+                            >
+                            ($8ea, $16 total)
+                        </li>
+                        <li>
+                            2 x
+                            <a
+                                href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-recessed-spring-loaded-handle-chrome"
+                                >Recessed Handles</a
+                            >($9ea, $18 total)
+                        </li>
                     </ul>
                 </div>
-            </section>
-            <section>
-                <h2>Non-measured Hardware</h2>
-                <ul>
-                    <li>
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-flat-corner-chrome"
-                            >Corners</a
-                        >
-                        or
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-ball-corner-chrome"
-                            >Ball Corners</a
-                        >
-                        ($5ea, $40 total)
-                    </li>
-                    <li>
-                        8 x
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-l-brace-plate-30mm-cut-corners-chrome"
-                            >L Brackets</a
-                        >
-                        for edges of openings ($1.50ea, $12 total)
-                    </li>
-                    <li>
-                        2 x Hinges or
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-punched-piano-hinge-road-case-1-8m"
-                            >Piano Hinge</a
-                        >
-                        ($26 for 1.8m)
-                    </li>
-                    <li>
-                        2 x
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-butterfly-latch-catch-recessed-medium"
-                            >Recessed Latches</a
-                        >
-                        ($8ea, $16 total)
-                    </li>
-                    <li>
-                        2 x
-                        <a
-                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-recessed-spring-loaded-handle-chrome"
-                            >Recessed Handles</a
-                        >($9ea, $18 total)
-                    </li>
-                </ul>
+                {% endif %}
             </section>
         </div>
     </body>
