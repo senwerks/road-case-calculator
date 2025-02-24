@@ -8,11 +8,11 @@ I made this for my own personal usage, so it's not very polished. But it works f
 
 ## TODO
 
-[ ] - Let user choose extrusion lengths available at their supplier, then calculate "lengths to order"
-[ ] - Make it less ugly
-[ ] - Add better explanation of how to use the output, allow for kerf/waste, example cuts for lid, etc
-[ ] - Generate plans/diagrams?
-[ ] - Scrape and generate prices?
+[ ]- Let user choose extrusion lengths available at their supplier, then calculate "lengths to order"
+[ ]- Make it less ugly
+[ ]- Add better explanation of how to use the output, allow for kerf/waste, example cuts for lid, etc
+[ ]- Generate plans/diagrams?
+[ ]- Scrape and generate prices?
 
 ## Reference
 
