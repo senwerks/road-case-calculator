@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Road Case Calculator</title>
+
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/nano.min.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <section>
+                <h1>
+                    <kbd>Road Case Calculator</kbd>
+                    <span>for Audio/Visual travel cases</span>
+                </h1>
+            </section>
+            <section>
+                <h2>Enter your case dimensions</h2>
+                <form id="case-dimensions">
+                    <!-- Form goes here -->
+                    <br />
+                    <button type="submit">Submit</button>
+                </form>
+                <h2>Measured Hardware</h2>
+                <div id="calculator-output">
+                    Angle Joiner Extrusion (connects plywood sides)
+                    <ul>
+                        <li>Width of case x 4</li>
+                        <li>Depth of case x 4</li>
+                        <li>Height of case x 4</li>
+                    </ul>
+                    Hybrid Joiner
+                    <ul>
+                        <li>Width of case x 2</li>
+                        <li>Depth of case x 2</li>
+                    </ul>
+                    Plywood
+                    <ul>
+                        <li>Front/Back: Width x Height x 2</li>
+                        <li>Top/Bottom: Width x Depth x 2</li>
+                        <li>Sides: Height x Depth x 2</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2>Non-measured Hardware</h2>
+                <ul>
+                    <li>
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-flat-corner-chrome"
+                            >Corners</a
+                        >
+                        or
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-ball-corner-chrome"
+                            >Ball Corners</a
+                        >
+                        ($5ea, $40 total)
+                    </li>
+                    <li>
+                        8 x
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-l-brace-plate-30mm-cut-corners-chrome"
+                            >L Brackets</a
+                        >
+                        for edges of openings ($1.50ea, $12 total)
+                    </li>
+                    <li>
+                        2 x Hinges or
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-punched-piano-hinge-road-case-1-8m"
+                            >Piano Hinge</a
+                        >
+                        ($26 for 1.8m)
+                    </li>
+                    <li>
+                        2 x
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-butterfly-latch-catch-recessed-medium"
+                            >Recessed Latches</a
+                        >
+                        ($8ea, $16 total)
+                    </li>
+                    <li>
+                        2 x
+                        <a
+                            href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-recessed-spring-loaded-handle-chrome"
+                            >Recessed Handles</a
+                        >($9ea, $18 total)
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>
