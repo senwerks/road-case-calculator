@@ -63,8 +63,24 @@
                                 >Angle Joiner Extrusion</a
                             >
                             (connects plywood edges)<br />
-                            (Width of case x 4) + (Depth of case x 4) + (Height
-                            of case x 4)
+                            {% if output.angle_cut_list %}
+                            <div id="angle-cut-list">
+                                <p>
+                                    Requires {{ output.angle_pieces }} x 1.5m
+                                    pieces with the following cuts:
+                                </p>
+                                <ul>
+                                    {% for piece in output.angle_cut_list %}
+                                    <li>
+                                        Length {{ loop.index }}: {% for cut in
+                                        piece.cuts %} {{ cut[0] }} ({{ cut[1]
+                                        }}mm){% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
                         </li>
                         <li>
                             {{ output.hybrid_joiner_extrusion }} of
@@ -73,7 +89,24 @@
                                 >Hybrid Joiner Extrusion</a
                             >
                             (interlocking rim/edges of lid opening)<br />
-                            (Width of case x 2) + (Depth of case x 2)
+                            {% if output.hybrid_cut_list %}
+                            <div id="hybrid-cut-list">
+                                <p>
+                                    Requires {{ output.hybrid_pieces }} x 1.5m
+                                    pieces with the following cuts:
+                                </p>
+                                <ul>
+                                    {% for piece in output.hybrid_cut_list %}
+                                    <li>
+                                        Length {{ loop.index }}: {% for cut in
+                                        piece.cuts %} {{ cut[0] }} ({{ cut[1]
+                                        }}mm){% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
                         </li>
                         <li>
                             Plywood Cut-List:<br />
@@ -96,6 +129,7 @@
                     <h2>Non-measured Hardware</h2>
                     <ul>
                         <li>
+                            8 x
                             <a
                                 href="https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-flat-corner-chrome"
                                 >Corners</a
