@@ -22,8 +22,12 @@
                 </h1>
             </section>
             <section>
-                <h2>Enter your case dimensions</h2>
-                <p>(mm, cm, inches, parsecs, we're unit-agnostic here)</p>
+                <h2>Road Case Dimensions</h2>
+                <p>
+                    Enter the final dimensions (in mm) for the road case and
+                    then hit submit to receive a breakdown on materials you will
+                    require.
+                </p>
                 <form id="case-dimensions" method="post" action="/calculate">
                     <label for="width">Width:</label>
                     <input
@@ -108,24 +112,23 @@
                             </div>
                             {% endif %}
                         </li>
+                    </ul>
+
+                    <h2>Plywood Cut-List</h2>
+                    <ul>
                         <li>
-                            Plywood Cut-List:<br />
-                            <ul>
-                                <li>
-                                    Front/Back: {{ output.width }} x {{
-                                    output.height }} x 2
-                                </li>
-                                <li>
-                                    Top/Bottom: {{ output.width }} x {{
-                                    output.depth }} x 2
-                                </li>
-                                <li>
-                                    Sides: {{ output.height }} x {{ output.depth
-                                    }} x 2
-                                </li>
-                            </ul>
+                            Front/Back: {{ output.width }} x {{ output.height }}
+                            x 2
+                        </li>
+                        <li>
+                            Top/Bottom: {{ output.width }} x {{ output.depth }}
+                            x 2
+                        </li>
+                        <li>
+                            Sides: {{ output.height }} x {{ output.depth }} x 2
                         </li>
                     </ul>
+
                     <h2>Non-measured Hardware</h2>
                     <ul>
                         <li>

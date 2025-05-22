@@ -36,3 +36,17 @@ Hardware:
 - 2 x Hinges or [Piano Hinge](https://www.titanav.co/collections/road-case-hardware/products/titan-av-punched-piano-hinge-road-case-1-8m) ($26 for 1.8m)
 - 2 x [Recessed Latches](https://www.titanav.co/collections/road-case-hardware/products/titan-av-road-case-butterfly-latch-catch-recessed-medium) ($8ea, $16 total)
 - 2 x [Recessed Handles](https://www.titanav.co/collections/road-case-hardware/products/titan-av-recessed-spring-loaded-handle-chrome)($9ea, $18 total)
+
+## Changelog
+
+## Changes - 2025-05-22
+
+**Summary:**
+The `templates/index.html` file has been modified to enhance user instructions and improve the layout of the form for entering road case dimensions. The section header has been changed to "Road Case Dimensions," and the accompanying text now clearly instructs users to input dimensions in millimeters and submit for material breakdown. Additionally, the Plywood Cut-List section has been reformatted for better readability, with the list items now wrapped in a `<ul>` tag, enhancing the structure and presentation of the output. Overall, these changes improve user experience and clarity in the input process and output display.
+
+**Modified files:** templates/index.html
+**Changes summary:**
+```
+ 1 file changed, 20 insertions(+), 17 deletions(-)
+```
+
