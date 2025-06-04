@@ -14,6 +14,10 @@ def pack_cuts(required_cuts, piece_length=1500):
     bins = []
     # Sort cuts descending by length for a better packing order
     for cut in sorted(required_cuts, key=lambda x: x[1], reverse=True):
+        if cut[1] > piece_length:
+            raise ValueError(
+                f"Cut length {cut[1]} exceeds available piece length {piece_length}"
+            )
         placed = False
         for b in bins:
             if b['remaining'] >= cut[1]:
@@ -29,7 +33,7 @@ def pack_cuts(required_cuts, piece_length=1500):
 
 @app.route('/')
 def index():
-    return render_template('index.html', output={})
+    return render_template('index.html', output={}, error=None)
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -55,8 +59,11 @@ def calculate():
     )
 
     # Pack the required cuts into 1.5m (1500mm) pieces.
-    angle_bins = pack_cuts(angle_cuts, piece_length=1500)
-    hybrid_bins = pack_cuts(hybrid_cuts, piece_length=1500)
+    try:
+        angle_bins = pack_cuts(angle_cuts, piece_length=1500)
+        hybrid_bins = pack_cuts(hybrid_cuts, piece_length=1500)
+    except ValueError as exc:
+        return render_template('index.html', output={}, error=str(exc))
 
     output = {
         'angle_joiner_extrusion': angle_joiner_extrusion,
@@ -70,7 +77,7 @@ def calculate():
         'depth': int(depth)
     }
 
-    return render_template('index.html', output=output)
+    return render_template('index.html', output=output, error=None)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=51337, debug=True, threaded=True)
