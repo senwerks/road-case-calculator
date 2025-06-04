@@ -23,6 +23,9 @@
             </section>
             <section>
                 <h2>Road Case Dimensions</h2>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
                 <p>
                     Enter the final dimensions (in mm) for the road case and
                     then hit submit to receive a breakdown on materials you will

@@ -17,3 +17,8 @@ think {
     border-inline-start:.25rem solid var(--nano-blockquote-border-color);
     border-inline-end:none
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
