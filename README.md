@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a very simple calculator for helping you figure out what hardware you need to buy to build a custom A/V roadcase to your own dimeniosn.
+This is a very simple calculator for helping you figure out what hardware you need to buy to build a custom A/V roadcase to your own dimensions.
 
 I made this for my own personal usage, so it's not very polished. But it works for me, and I hope it works for you too.
 
